@@ -1,3 +1,11 @@
+# Docker 1.12.6
+If you want deploy docker 1.12.6 you should used branch docker-1-12-6. Unfortunately docker-1-12-6.tgz is not uploaded to blobstore so you have to add blob create developer release:
+```
+bosh add blob ./docker-1.12.6.tgz docker
+bosh create release --force
+bosh upload release
+```
+
 # Bosh release for Docker
 
 One of the fastest ways to get [Docker](https://www.docker.io/) and orchestrate containers with persistent data on any
