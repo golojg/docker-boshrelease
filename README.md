@@ -5,6 +5,18 @@ bosh add blob ./docker-1.12.6.tgz docker
 bosh create release --force
 bosh upload release
 ```
+# Syslog configuration
+Docker job configures syslog to store docker container's and docker service's log in /var/vcap/sys/log/docker/docker-services.log file. To enable sending logs to syslog you have got 2 possibilities:
+- configure default docker daemon log driver. For that you have to add following configuration to your deployment:
+  ```
+  docker:
+    log_driver: syslog
+    log_options:
+      - syslog-address=tcp://127.0.0.1:514
+  ```
+- configure log driver for container/service. For that add following variables to 'run'/'service create' command: `` --log-driver=syslog --log-opt syslog-address=tcp://127.0.0.1:514 `   
+
+You can define value which will identifies log of your container/service by adding following variable to your 'run'/'service create' command:  `` --log-opt tag=YOUR_VALUE ``
 
 # Bosh release for Docker
 
