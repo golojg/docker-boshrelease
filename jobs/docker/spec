@@ -12,7 +12,7 @@ templates:
   config/docker.cacert.erb: config/docker.cacert
   config/docker.cert.erb: config/docker.cert
   config/docker.key.erb: config/docker.key
-  rsyslog/69-docker.conf:           etc/rsyslog.d/69-docker.conf
+  rsyslog/21-docker.conf:           etc/rsyslog.d/21-docker.conf
   rsyslog/pre-start.sh:              bin/pre-start
 
 properties:
