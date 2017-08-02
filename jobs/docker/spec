@@ -14,6 +14,7 @@ templates:
   config/docker.key.erb: config/docker.key
   rsyslog/21-docker.conf:           etc/rsyslog.d/21-docker.conf
   rsyslog/pre-start.sh:              bin/pre-start
+  bin/post-start.erb: bin/post-start
 
 properties:
   docker.tcp_address:
@@ -108,6 +109,8 @@ properties:
     description: "Enable flannel support"
     default: false
 
+  docker.post_start_script:
+    description: "Script body which will be executed after docker start"
 
   env.http_proxy:
     description: "HTTP proxy that Docker should use"
