@@ -111,6 +111,7 @@ properties:
 
   docker.post_start_script:
     description: "Script body which will be executed after docker start"
+    default: "#!/bin/bash"
 
   env.http_proxy:
     description: "HTTP proxy that Docker should use"
