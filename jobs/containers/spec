@@ -7,6 +7,8 @@ packages:
 templates:
   bin/containers_ctl.erb: bin/containers_ctl
   bin/job_properties.sh.erb: bin/job_properties.sh
+  bin/drain.erb: bin/drain
+  bin/post-start.erb: bin/post-start
 
 properties:
   containers:
@@ -58,3 +60,10 @@ properties:
       containers.volumes_from: Optional array of mount volumes from the specified container(s)
       containers.volume_driver: Optional string containing the volume driver for the container
       containers.workdir: Optional string containing the working directory inside the container
+
+  containers_scripts.drain_script:
+    description: "Script body which will be executed before stoping containers"
+    default: "#!/bin/bash"
+  containers_scripts.post_start_script:
+    description: "Script body which will be executed after containers start"
+    default: "#!/bin/bash"
